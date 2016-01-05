@@ -1,0 +1,25 @@
+\documentclass{homework}
+
+\title{Homework 1}
+
+\begin{document}
+
+\maketitle
+
+\begin{problem}{1}
+Let $g : [a, b] \to [b - a, a - b]$ be a function such that $g(x) = f(x) - a - (x - a)$. $g(a) = f(a) - a \geq 0$, $g(b) = f(b) - a - b + a = f(b) - b \leq 0$. Apply the intermediate value theorem and we obtain that there exists $c \in [a, b]$ such that $g(c) = 0$. For this $c$ we have $g(c) = f(c) - a - c + a = f(c) - c = 0$, or $f(c) = c$. Therefore, there exists $c \in [a, b]$ such that $f(c) = c$. \QED
+\end{problem}
+
+\begin{problem}{2}
+\begin{enumerate}
+\item First we prove that $\sqrt{2}$ is an upper bound of $X$. Assuming that there exists $c \in X$ such that $c > \sqrt{2}$, since $c$ is nonnegative, $c^2 = c \cdot c > \sqrt{2}c > \sqrt{2} \times \sqrt{2} > 2$, which contradicts to the premise that $c^2 < 2$. Therefore, all $c \in X$ is less than $\sqrt{2}$, which proves that $\sqrt{2}$ is an upper bound of $X$. Apply the theorem of the completeness of real numbers and we know that $\sup X$ exists. \QED
+
+\item Since $\sqrt{2}$ is an upper bound of $X$, we know that $\sup X \leq \sqrt{2}$. Since $0 \in X$, $0 \leq \sup X$. Since both $\sup X$ and $\sqrt{2}$ is nonnegative, we can square both and get $a = \sup X \leq 2$. \QED
+\end{enumerate}
+\end{problem}
+
+\begin{problem}{3}
+Let $\{c_n\}_{n \geq 1}$ and $\{d_n\}_{n \geq 1}$ be the sequences of partial sums of $a_n$ and $b_n$ respectively. Namely, $c_i = \sum^{i}_{j=1}a_j$, $d_i = \sum^{i}_{j=1}b_j$. Since both $a_n$ and $b_n$ are sequences of nonnegative real numbers, $c_n$ and $d_n$ are nondecreasing sequences. If $b_n$ converges, then $d_n$ also converges, leading to the fact that $d_n$ is bounded. Because for each positive integer $i$, $0 \leq c_i \leq d_i$, we know that $c_n$ is also bounded, which means it converges. Accordingly, $\sum^{\infty}_{n=1}a_n$ converges. \QED
+\end{problem}
+
+\end{document}
