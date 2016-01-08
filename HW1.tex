@@ -22,4 +22,42 @@ Let $g : [a, b] \to [b - a, a - b]$ be a function such that $g(x) = f(x) - a - (
 Let $\{c_n\}_{n \geq 1}$ and $\{d_n\}_{n \geq 1}$ be the sequences of partial sums of $a_n$ and $b_n$ respectively. Namely, $c_i = \sum^{i}_{j=1}a_j$, $d_i = \sum^{i}_{j=1}b_j$. Since both $a_n$ and $b_n$ are sequences of nonnegative real numbers, $c_n$ and $d_n$ are nondecreasing sequences. If $b_n$ converges, then $d_n$ also converges, leading to the fact that $d_n$ is bounded. Because for each positive integer $i$, $0 \leq c_i \leq d_i$, we know that $c_n$ is also bounded, which means it converges. Accordingly, $\sum^{\infty}_{n=1}a_n$ converges. \QED
 \end{problem}
 
+\begin{problem}{5}
+\begin{enumerate}
+\item The line $y = 1$ in the $(x, y)$-plane is a \emph{closed} set.
+
+Let $L$ denote the line and $L^C$ its complement $\mathbb{R}^2 - L$. Let $p = (x, y)$ be an arbitrary point in $L^C$ and $\epsilon = |y - 1|$. For any point $q = (x', 1) \in L$, $q \notin B_{\epsilon}(p)$, because $|p - q| = \sqrt{(x - x')^2 + (y - 1)^2} \geq \sqrt{(y - 1)^2} = |y - 1| = \epsilon$. Clearly, $y \neq 1$ and $\epsilon > 0$. For any point $q \in B_{\epsilon}(p)$, because $q \in \mathbb{R}^2$ and $q \notin L$, $q \in L^C$. Therefore, $L^C$ is an open set and consequently $L$ is a closed set. \QED
+
+\item The $(y, z)$-plane in $\mathbb{R}^3$ is a \emph{closed} set.
+
+Let $P$ denote the $(y, z)$-plane $\{(0, y, z) | y, z \in \mathbb{R}\}$ and $P^C$ its complement. Let $p = (x, y, z)$ be an arbitrary point in $L^C$ and $\epsilon = |x|$. Clearly, $x \neq 0$ and $\epsilon > 0$. For any point $q = (0, y', z') \in P$, $q \notin B_{\epsilon}(p)$, because $|p - q| = \sqrt{(x - 0)^2 + (y - y')^2 + (z - z')^2} \geq \sqrt{(x - 0)^2} = |x| = \epsilon$. For any point $q \in B_{\epsilon}(p)$, because $q \in \mathbb{R}^3$ and $q \notin P$, $q \in P^C$. Therefore, $P^C$ is an open set and consequently $P$ is a closed set. \QED
+
+\item The unit circle centered at $(0, 0$ in $\mathbb{R}^2$ is a \emph{closed} set.
+
+Let $S$ denote the unit circle, $S^C$ its complement, and $o = (0, 0)$. Let $p$ be an arbitrary point in $S^C$ and $\epsilon = |1 - |p - o||$. Clearly $|p - o| \neq 1$---otherwise $p$ is on the unit circle---and $\epsilon > 0$. For any point $q \in S$, $q \notin B_{\epsilon}(p)$, because
+\begin{enumerate}
+\item $|p - o| > |q - o|$:
+\begin{align*}
+  |p - q| + |q - o| & \geq |p - o| \\
+  |p - q| & \geq |p - o| - |q - o| > 0 \\
+  |p - q| & \geq |p - o| - 1 = \epsilon
+\end{align*}
+
+\item $|q - o| > |p - o|$:
+\begin{align*}
+  |q - p| + |p - o| & \geq |q - o| \\
+  |q - p| & \geq |q - o| - |p - o| > 0 \\
+  |q - p| & \geq |q - o| - 1 = \epsilon
+\end{align*}
+\end{enumerate}
+
+. For any point $q \in B_{\epsilon}(p)$, because $q \in \mathbb{R}^2$ and $q \notin S$, $q \in S^C$. Therefore, $S^C$ is an open set and consequently $S$ is a closed set. \QED
+
+\item The set $\{(x, 0) | x > 0\}$ in $\mathbb{R}^2$ is neither open nor closed.
+
+\item The set $\{(x, 0) | x \geq 0\}$ in $\mathbb{R}^2$ is closed.
+
+\end{enumerate}
+\end{problem}
+
 \end{document}
