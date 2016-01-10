@@ -50,12 +50,85 @@ Let $S$ denote the unit circle, $S^C$ its complement, and $o = (0, 0)$. Let $p$ 
   |q - p| & \geq |q - o| - 1 = \epsilon
 \end{align*}
 \end{enumerate}
-
 . For any point $q \in B_{\epsilon}(p)$, because $q \in \mathbb{R}^2$ and $q \notin S$, $q \in S^C$. Therefore, $S^C$ is an open set and consequently $S$ is a closed set. \QED
 
-\item The set $\{(x, 0) | x > 0\}$ in $\mathbb{R}^2$ is neither open nor closed.
+\item The set $\{(x, 0) | x > 0\}$ in $\mathbb{R}^2$ is \emph{neither open nor closed}.
 
-\item The set $\{(x, 0) | x \geq 0\}$ in $\mathbb{R}^2$ is closed.
+Let $S$ denote the set and $S^C$ its complement $\mathbb{R}^2 - S$.
+\begin{enumerate}
+\item $S^C$ is not open. Let $p = (0, 0)$ For any $\epsilon > 0$, define $q = (\epsilon/2, 0)$, $q \in B_{\epsilon}(p)$, $q \in S$, namely $q \notin S^C$. \QED
+
+\item $S$ is not open. Let $p = (x, 0)$ be an arbitrary point in $S$. For any $\epsilon > 0$, define $q = (x, \epsilon/2)$, $q \in B_{\epsilon}(p)$, $q \in S^C$, namely $q \notin S$. \QED
+\end{enumerate}
+
+Since both $S$ and its complement are not open, $S$ is neither open nor closed. \QED
+
+\item The set $\{(x, 0) | x \geq 0\}$ in $\mathbb{R}^2$ is \emph{closed}.
+
+Let $S$ denote the set and $S^C$ its complement $\mathbb{R}^2 - S$. Let $p$ be an arbitrary point in $S^C$.
+\begin{enumerate}
+\item $p = (x, y)$ where $y \neq 0$. Let $\epsilon = |y|$, which is clearly positive. For any point $q$ in $S$, $|q - p| \geq \sqrt{(y - 0)^2} = |y| = \epsilon$, so $q \notin B_{\epsilon}(p)$.
+
+\item $p = (x, 0)$. Let $\epsilon = |x|$, which is also clearly positive. For any point $q$ in $S$, $|q - p| \geq \sqrt{(x - 0)^2} = |x| = \epsilon$, so $q \notin B_{\epsilon}(p)$.
+\end{enumerate}
+
+Therefore, for any point $q \in B_{\epsilon}(p)$, because $q \in \mathbb{R}^2$ and $q \notin S$, $q \in S^C$. Consequently, $S^C$ is an open set and $S$ is a closed set. \QED
+
+\item The set $\{(x, x) | x \in \mathbb{R}\}$ in $\mathbb{R}^2$ is \emph{closed}.\par
+\textbf{Claim}. If $a + b \geq c$, then $a^2 + b^2 \geq \frac{1}{2}c^2$.\par
+\textbf{Proof}. Since $a + b \geq c$, $a^2 + b^2 + 2ab \geq c^2$. Since $a^2 + b^2 - 2ab = (a-b)^2 \geq 0$, $a^2 + b^2 > 2ab$. Therefore, $2(a^2 + b^2) \geq a^2 + b^2 + 2ab \geq c^2$, or $a^2 + b^2 \geq \frac{1}{2} c^2$. \QED
+
+Let $L$ denote the set and $L^C$ its complement $\mathbb{R}^2 - L$. Let $p = (x, y)$ be an arbitrary point in $L^C$ and $\epsilon = \sqrt{2}/2|x - y|$. Clearly $\epsilon > 0$. Let  $q = (c, c)$ be an arbitrary point in $L$. Since $|c - x| + |c - y| \geq |x - y|$ (too trivial, proof omitted here), $(c + x)^2 + (c + y)^2 \geq \frac{1}{2}(x - y)^2$. Then, $|p - q| = \sqrt{(c + x)^2 + (c + y)^2} \geq \sqrt{2}/2|x - y| = \epsilon$, i.e. $q \notin B_{\epsilon}(p)$. Therefore, for any point $q \in B_{\epsilon}(p)$, because $q \in \mathbb{R}^2$ and $q \notin L$, $q \in L^C$. Consequently, $L^C$ is an open set and $L$ is a closed set. \QED
+
+\item The sphere of radius $2$ centered at $(0, 0, 0)$ in $\mathbb{R}^3$ is an \emph{open} set.
+
+Let $S$ denote the sphere and $o$ its center. For any point $p \in S$, let $\epsilon = 2- |p - o|$, which is clearly positive. For any point $q \in B_{\epsilon}(p)$,
+\begin{align*}
+|q - o| &\leq |q - p| + |p - o| \\
+        &<    \epsilon + |p - o| = 2
+\end{align*}
+
+, namely $q \in S$. Therefore, $S$ is an open set. \QED
+\item $\{(x, y) \in \mathbb{R}^2 | 0 < x^2 + y^2 < 4\}$ is an \emph{open} set.
+
+Let $S$ denote the sphere and $o = (0, 0)$. For any point $p \in S$, let $\epsilon = \min(|p - o|, 2- |p - o|)$, which is clearly positive. Let $q = (x, y)$ be an arbitrary point in $B_{\epsilon}(p)$. Since
+\begin{align*}
+|q - o| &\leq |q - p| + |p - o| \\
+        &<    \epsilon + |p - o| \\
+        &\leq 2
+\end{align*}
+, $x^2 + y^2 < 4$. Since
+\begin{align*}
+|o - p| &\leq |o - q| + |q - p| \\
+|o - q| &\geq |o - p| - |q - p| \\
+        &\ge  |o - p| - \epsilon \\
+        &\geq 0
+\end{align*}
+, $x^2 + y^2 > 0$. Therefore, $S$ is an open set. \QED
+
+\item $\{(x, y) \in \mathbb{R}^2 | xy = 0\}$ is a \emph{closed} set.
+
+Let $S$ denote the set and $S^C$ its complement $\mathbb{R}^2 - S$. Since $xy = 0$ iff $x = 0$ or $y = 0$, $S = \{(x,0) | x \in \mathbb{R}\} \cup \{(0, y) | y \in \mathbb{R}\}$. Let $p$ be an arbitrary point in $S^C$ and $\epsilon = \min(|x|, |y|)$. Clearly, $\epsilon > 0$. Let $q$ be an arbitrary point in $S$.
+
+\begin{enumerate}
+\item If $q = (x, 0)$, $|p - q| \geq \sqrt{(y - 0)^2} = |y| \geq \epsilon$, so $q \notin B_{\epsilon}(p)$.
+
+\item If $q = (0, y)$, $|p - q| \geq \sqrt{(x - 0)^2} = |x| \geq \epsilon$, so $q \notin B_{\epsilon}(p)$.
+\end{enumerate}
+
+Therefore, for any point $q \in B_{\epsilon}(p)$, because $q \in \mathbb{R}^2$ and $q \notin S$, $q \in S^C$. Consequently, $S^C$ is an open set and $S$ is a closed set. \QED
+
+\item $\{(x,y) \in \mathbb{R}^2 | 1 \leq x^2 + y^2 \leq 2\}$ is a \emph{closed} set.
+
+Let $S$ denote the set, $S^C$ its complement $\mathbb{R}^2 - S$, and $o = (0, 0)$. Let $p = (x, y)$ be an arbitrary point of $S^C$.
+
+\begin{enumerate}
+\item If $x^2 + y^2 < 1$, let $\epsilon = 1 - |p - o|$, which is clearly positive. For any point $q = (x', y') \in B_{\epsilon}(p)$, $|q - o| \leq |q - p| + |p - o| \le \epsilon - |p - o| = 1$, so $x'^2 + y'^2 < 1$, or $q \notin S$.
+
+\item If $x^2 + y^2 > 2$, let $\epsilon = |p - o| - \sqrt{2}$, which is also positive. For any point $q = (x', y') \in B_{\epsilon}(p)$, $|p - o| \leq |p - q| + |q - o|$. Then, $|q - o| \geq |p - o| - |p - q| > |p - o| - \epsilon = \sqrt{2}$. As a result, $x'^2 + y^2 > 2$, or $q \notin S$.
+\end{enumerate}
+
+This concludes that $S^C$ is open and consequently $S$ is closed. \QED
 
 \end{enumerate}
 \end{problem}
