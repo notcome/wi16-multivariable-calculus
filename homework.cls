@@ -10,3 +10,5 @@
   {}
 
 \newcommand \QED{\hfill$\square$}
+
+\newcommand \pmat[1]{\begin{pmatrix}#1\end{pmatrix}}
