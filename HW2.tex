@@ -1,0 +1,51 @@
+\documentclass{homework}
+
+\title{Homework 2}
+
+\begin{document}
+
+\maketitle
+
+\begin{problem}{1}
+\begin{enumerate}
+\item $\{\vec{p} \in \mathbb{R}^n : |\vec{p} - \vec{x}| \leq r\}$
+\item $\{(x, 0) : x \geq 0\}$
+\item $\emptyset$
+\end{enumerate}
+\end{problem}
+
+\begin{problem}{2}
+Assume that $B_r(x) \cap \overline{A} \neq \emptyset$. Let $p \in B_r(x) \cap \overline{A}$, and $\epsilon = r - |p - x|$. Clearly, $\epsilon > 0$. We know that $B_{\epsilon}(p) \subset B_r(x)$, since for every point $q \in B_{\epsilon}(p)$, $|q - x| \leq |q - p| + |p - x| < r$. By the definition of closure, we also know that $B_{\epsilon}(p) \cap A \neq \emptyset$. Therefore, $B_r(x) \cap A \neq \emptyset$, which contradicts the premise. Hence we have proven that $B_r(x) \cap \overline{A} = \emptyset$. \QED
+\end{problem}
+
+\begin{problem}{3}
+Show $A \subset \overline{A}$. For any $x \in A$, $B_r(x) \cap A \neq \emptyset$ for all $r > 0$---since $x \in B_r(x)$ and $x \in A$---and thus $x \in \overline{A}$.
+
+Show $\overline{A} \subset A$. Since $A$ is closed, $A^C$ is open. Applying what we have proven in \textbf{\#2} we know that for any $x \in A^C$, $B_r(x) \cap \overline{A} = \emptyset$ for some positive $r$. As a result, for any $x \in \overline{A}$, $x \notin A^C$---otherwise there should be a non-empty intersection---and $x \in A$.
+
+Since $A \subset \overline{A}$ and $\overline{A} \subset A$, $A = \overline{A}$. \QED
+\end{problem}
+
+\begin{problem}{4}
+Let $\epsilon > 0$. Since $\vec{x}_m$ converges to $\vec{x}_0$, there exists $N$ such that for all $i \geq N$, $|\vec{x}_i - \vec{x}_0| < \epsilon$. Then, $B_{\epsilon}(\vec{x}_0) \cap A \neq \emptyset$, so $\vec{x}_0 \in \overline{A}$, namely $\vec{x}_0 \in A$.
+\end{problem}
+
+\begin{problem}{5}
+Suppose there exists a point $\vec{x}_0 \in A^C$ such that for all $r > 0$, $B_r(\vec{x}_0) \notin A^C$. We can then construct a sequence $\vec{x}_m$ of points in $A$. Let $r$ be an arbitrary positive number. Let $\vec{x}_i$ be an arbitrary point of $B_{r/i}(\vec{x}_0)$ such that $\vec{x}_i \in A$; such point must exist, since $B_{r/i}(\vec{x}_0) \cap A \neq \emptyset$. For any $\epsilon > 0$, there exists $N \in \mathbb{N}$ such that $r/N < \epsilon$; as a result, for all $i \geq N$, $|\vec{x}_N - \vec{x}_0| < r/N < \epsilon$, which proves that $\vec{x}_m \to \vec{x}_0$. Following the property of $A$ we know $\vec{x}_0 \in A$, which contradicts our assumption that $\vec{x}_0 \in A^C$. \QED
+\end{problem}
+
+\begin{problem}{6}
+Since $f$ is not continuous, there exists $\epsilon > 0$ such that for all $\delta > 0$, there exists $\vec{x}$ such that $|\vec{x} - \vec{x}_0| < \delta$ yet $|f(\vec{x}) - f(\vec{x}_0)| \geq \epsilon$. Let $r > 0$. Let $\vec{x}_i$ be an point of $X$ such that $|\vec{x}_i - \vec{x}| < r/i$ yet $|f(\vec{x}_i) - f(\vec{x}_0)| \geq \epsilon$. Clearly this sequence converges to $\vec{x}_0$: for $\epsilon > 0$, there exists $N \in \mathbb{N}$ such that $Nr < \epsilon$, namely for all $i \geq N$, $|vec{x}_i - \vec{x}_0| < r/N < \epsilon$. However, there exists $\epsilon > 0$, namely the one we have assumed above, for all $m \geq 1$, $|f(\vec{x}_m) - f(\vec{x}_0)| > \epsilon$. Therefore, the limit $\lim_{m \to \infty}f(\vec{x}_m) = f(\vec{x}_0)$ doesn't hold. \QED
+\end{problem}
+
+\begin{problem}{7}
+$\{i(m) : m \in \mathbb{Z}^{+}\} \subset \{2i : i \in \mathbb{N}\}$ or $\{i(m) : m \in \mathbb{Z}^{+}\} \subset \{2i + 1 : i \in \mathbb{N}\}$.
+\end{problem}
+
+\begin{problem}{9}
+First, we prove that if $\{a_m\}_{m\geq1}$ converges then $\{b_m\}_{m\geq1}$. Let $\epsilon > 0$. Since $\{a_m\}_{m\geq1}$ converges---naming the convergence point $p$---there exists $N_1$ such that for all $i \geq N_1$, $|a_i - p| < \epsilon / 2$. Since $|a_m - b_m|$ converges to $0$, there exists $N_2$ such that for all $i \geq N_2$, $|b_i - a_i| < \epsilon / 2$. Let $N = \max(N_1, N_2)$, then for all $i \geq N$, $|b_i - p| \leq |b_i - a_i| + |a_i - p| < \epsilon$. This shows that $\{b_m\}_{m\geq1}$ converges to $p$.
+
+Since $|a_m - b_m|$ converges to $0$ implies that $|b_m - a_m|$ converges to $0$, we can apply what we have just proven and obtains that if $\{b_m\}_{m\geq1}$ converges then $\{a_m\}_{m\geq1}$. This proves the other direction. Therefore, $\{a_m\}_{m\geq1}$ converges if and only if $\{b_m\}_{m\geq1}$ converges. \QED
+\end{problem}
+
+\end{document}
