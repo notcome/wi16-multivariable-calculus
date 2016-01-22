@@ -39,7 +39,15 @@ Since $f$ is not continuous, there exists $\epsilon > 0$ such that for all $\del
 \end{problem}
 
 \begin{problem}{7}
-$\{i(m) : m \in \mathbb{Z}^{+}\} \subset \{2i : i \in \mathbb{N}\}$ or $\{i(m) : m \in \mathbb{Z}^{+}\} \subset \{2i + 1 : i \in \mathbb{N}\}$.
+Let $E = \{2i : i \in \mathbb{N}\}$, $O = \{2i + 1 : i \in \mathbb{N}\}$. Then the set $\{i(m) : m \in \mathbb{Z}^{+}\}$ must be either the union of a finite subset of $E$ and an infinite subset of $O$, or the union of a finite subset of $O$ and an infinite subset of $E$.
+\end{problem}
+
+\begin{problem}{8}
+\begin{enumerate}
+\item Since $C$ is a compact set and $\vec{x}_m$ is a sequence in $C$, we can apply theorem 1.6.3 of the textbook and obtain that there exists a subsequence $\vec{x}_{i(m)}$ that converges to a point $\vec{x}_0$ in $C$. \QED
+\item See $\vec{x}_{i(m)}$ as a sequence indexed by $m$. Since $\vec{x}_{i(m)}$ converges to $x_0$ and $f$ is continuous, $\lim_{m \to \infty} f(\vec{x}_{i(m)}) = f(x_0)$. Let $\epsilon = 1$, we know that there exists $M \in \mathbb{Z}^{+}$ such that $|f(\vec{x}_{i(m)}) - f(x_0)| < \epsilon = 1$ for all $m \geq M$. This proves the existence of such $M$. \QED
+\item Let $m$ be an positive integer. Let $n = i(m)$. Since $i(m)$ is a increasing sequence of positive integers, we know $n \geq m$. Therefore, $|f(\vec{x}_{i(m)})| \geq n \geq m$. Then, for any $m$ such that $|f(\vec{x}_{i(m)}) - f(x_0)| < 1$, $1 < f(\vec{x}_{i(m+2)})$, which shows that $m$ specified in (2) does not exist, hence a contradiction.
+\end{enumerate}
 \end{problem}
 
 \begin{problem}{9}
