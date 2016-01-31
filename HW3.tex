@@ -1,0 +1,26 @@
+\documentclass{homework}
+
+\title{Homework 3}
+
+\begin{document}
+
+\maketitle
+
+\begin{problem}{4}
+\def \tr{\mathrm{tr}}
+
+Fix $A = \bmat{a&b\\c&d}$ and $H = \bmat{e&f\\g&i}$. Identify $A, H$ as vectors in $\mathbb{R}^4$ and $\det : \mathbb{R}^4 \to \mathbb{R}$. Then
+$$\mathbf{J}_{\det}(A) = \bmat{d&-c&-b&a}$$
+$$\mathrm{LHS} = de-cf-bg+ai$$
+The right hand side
+\begin{align*}
+  \det(A)\tr(A^{-1}H) &= (ad-bc)\tr(\frac{1}{ad-bc}\bmat{d&-c\\-b&a}\bmat{e&f\\g&i}) \\
+                      &= \tr(\bmat{d&-b\\-c&a}\bmat{e&f\\g&i}) \\
+                      &= \tr(\bmat{de-bg&\dots\\\dots&-cf+ai}) \\
+                      &= de-bg-cf+ai \\
+                      &= de-cf-bg+ai = \mathrm{LHS}
+\end{align*}
+This completes the proof. \QED
+\end{problem}
+
+\end{document}

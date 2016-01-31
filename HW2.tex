@@ -15,15 +15,15 @@
 \end{problem}
 
 \begin{problem}{2}
-Assume that $B_r(x) \cap \overline{A} \neq \emptyset$. Let $p \in B_r(x) \cap \overline{A}$, and $\epsilon = r - |p - x|$. Clearly, $\epsilon > 0$. We know that $B_{\epsilon}(p) \subset B_r(x)$, since for every point $q \in B_{\epsilon}(p)$, $|q - x| \leq |q - p| + |p - x| < r$. By the definition of closure, we also know that $B_{\epsilon}(p) \cap A \neq \emptyset$. Therefore, $B_r(x) \cap A \neq \emptyset$, which contradicts the premise. Hence we have proven that $B_r(x) \cap \overline{A} = \emptyset$. \QED
+Assume that $B_r(x) \cap \overline{A} \neq \emptyset$. Let $p \in B_r(x) \cap \overline{A}$, and $\epsilon = r - |p - x|$. Clearly, $\epsilon > 0$. We know that $B_{\epsilon}(p) \subseteq B_r(x)$, since for every point $q \in B_{\epsilon}(p)$, $|q - x| \leq |q - p| + |p - x| < r$. By the definition of closure, we also know that $B_{\epsilon}(p) \cap A \neq \emptyset$. Therefore, $B_r(x) \cap A \neq \emptyset$, which contradicts the premise. Hence we have proven that $B_r(x) \cap \overline{A} = \emptyset$. \QED
 \end{problem}
 
 \begin{problem}{3}
-Show $A \subset \overline{A}$. For any $x \in A$, $B_r(x) \cap A \neq \emptyset$ for all $r > 0$---since $x \in B_r(x)$ and $x \in A$---and thus $x \in \overline{A}$.
+Show $A \subseteq \overline{A}$. For any $x \in A$, $B_r(x) \cap A \neq \emptyset$ for all $r > 0$---since $x \in B_r(x)$ and $x \in A$---and thus $x \in \overline{A}$.
 
-Show $\overline{A} \subset A$. Since $A$ is closed, $A^C$ is open. Applying what we have proven in \textbf{\#2} we know that for any $x \in A^C$, $B_r(x) \cap \overline{A} = \emptyset$ for some positive $r$. As a result, for any $x \in \overline{A}$, $x \notin A^C$---otherwise there should be a non-empty intersection---and $x \in A$.
+Show $\overline{A} \subseteq A$. Since $A$ is closed, $A^C$ is open. Applying what we have proven in \textbf{\#2} we know that for any $x \in A^C$, $B_r(x) \cap \overline{A} = \emptyset$ for some positive $r$. As a result, for any $x \in \overline{A}$, $x \notin A^C$---otherwise there should be a non-empty intersection---and $x \in A$.
 
-Since $A \subset \overline{A}$ and $\overline{A} \subset A$, $A = \overline{A}$. \QED
+Since $A \subseteq \overline{A}$ and $\overline{A} \subseteq A$, $A = \overline{A}$. \QED
 \end{problem}
 
 \begin{problem}{4}
