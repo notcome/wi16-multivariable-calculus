@@ -1,0 +1,102 @@
+\documentclass{homework}
+
+\title{Homework 4}
+
+\begin{document}
+
+\maketitle
+
+\begin{problem}{1}
+\begin{align*}
+D_1f\pmat{x\\y}
+&= \frac{\partial \varphi(\frac{x+y}{x-y})}{\partial x} \\
+&= \frac{\partial \varphi(\frac{x+y}{x-y})}{\partial \frac{x+y}{x-y}} \cdot \frac{\partial \frac{x+y}{x-y}}{\partial x} \\
+&= \frac{\partial \varphi(\frac{x+y}{x-y})}{\partial \frac{x+y}{x-y}} \cdot \frac{\partial 2y\frac{1}{x-y}}{\partial x} \\
+&= \varphi'(\frac{x+y}{x-y}) \cdot (- \frac{2y}{(x-y)^2})
+\end{align*}
+
+\begin{align*}
+D_2f\pmat{x\\y}
+&= \frac{\partial \varphi(\frac{x+y}{x-y})}{\partial y} \\
+&= \frac{\partial \varphi(\frac{x+y}{x-y})}{\partial \frac{x+y}{x-y}} \cdot \frac{\partial \frac{x+y}{x-y}}{\partial y} \\
+&= \frac{\partial \varphi(\frac{x+y}{x-y})}{\partial \frac{x+y}{x-y}} \cdot \frac{\partial 2x\frac{1}{x-y}}{\partial y} \\
+&= \varphi'(\frac{x+y}{x-y}) \cdot \frac{2x}{(x-y)^2}
+\end{align*}
+
+$$xD_1f + xD_2f = \varphi'(\frac{x+y}{x-y}) \cdot (- \frac{2y}{(x-y)^2}) + \varphi'(\frac{x+y}{x-y}) \cdot \frac{2x}{(x-y)^2} = 0$$
+\end{problem}
+
+\begin{problem}{2}
+$$f\pmat{x\\y} =
+\begin{dcases}
+\frac{3x^2y-y^3}{x^2+y^2} & \text{if } \pmat{x\\y} \neq \pmat{0\\0} \\
+0                         & \text{if } \pmat{x\\y} = \pmat{0\\0}
+\end{dcases}$$
+Directional derivatives can be computed using the computation rules for derivative when $(x, y) \ne (0, 0)$ and the definition formula when at the origin:
+$$\mathbf{D}_1f\pmat{x\\y} =
+\begin{dcases}
+\frac{8xy^3}{(x^2+y^2)^2} & \text{if } \pmat{x\\y} \neq \pmat{0\\0} \\
+0                         & \text{if } \pmat{x\\y} = \pmat{0\\0}
+\end{dcases}$$
+$$\mathbf{D}_2f\pmat{x\\y} =
+\begin{dcases}
+\frac{3x^4-6x^2y^2-y^4}
+{(x^2+y^2)^2} & \text{if } \pmat{x\\y} \neq \pmat{0\\0} \\
+0             & \text{if } \pmat{x\\y} = \pmat{0\\0}
+\end{dcases}$$
+If $f$ is differentiable at the origin, then
+$$\lim_{h \to 0} \frac{1}{h}(f(h\vec{v}) - f(0)) = [\mathbf{D}f]\pmat{0\\0}$$
+Let $v = \pmat{1\\1}$, then we have
+$$\mathrm{LHS} = \frac{1}{h}\frac{3h^3-h^3}{2h^2} = 1 \neq 0 = \mathrm{RHS}$$
+Therefore $f$ is not differentiable at the origin.
+\end{problem}
+
+\begin{problem}{3}
+$$[\mathbf{Df}\pmat{x\\y}] = \bmat{y & x\\2x & -2y}$$
+$$\det\bmat{y & x\\2x & -2y} = -2y^2 - 2x^2 = -2(x^2+y^2)$$
+Namely, every point except the origin point is locally invertible.
+\end{problem}
+
+\begin{problem}{4}
+Let $f\pmat{x\\y} = \pmat{x+y+\sin(xy)\\\sin(x^2+y)}$. Notice that $f\pmat{0\\0} = \pmat{0\\0}$. Therefore, if $\mathbf{D}f_{(0,0)}$ is invertible, then $f$ is locally invertible at $(0, 0)$.
+$$[\mathbf{D}f\pmat{x\\y}] = \bmat{1+y\cos(xy)&1+x\cos(xy)\\2x\cos(x^2+y)&\cos(x^2+y)}$$
+$$[\mathbf{D}f\pmat{0\\0}] = \bmat{1&1\\0&1}$$
+Since $\det[\mathbf{D}f\pmat{0\\0}] = 1 \ne 0$, $f$ is locally invertible at $(0, 0)$, and the system of equations do have a solution for a sufficiently small $a$.
+\end{problem}
+
+\begin{problem}{5}
+Let $f$ be the matrix square function. Identity the matrix as a vector of $\mathbb{R}^4$, we have
+$$f\pmat{x\\y\\z\\w} = \pmat{x^2+yz\\xy+yw\\zx+wz\\zy+w^2}$$
+$$[\mathbf{D}f_{(x,y,z,w)}] = \bmat{2x &   z &  y  &  0\\
+                            y & x+w &  0  &  y\\
+                            z &   0 & x+w &  z\\
+                            0 &   z &  y  & 2w}$$
+Note that
+$$f\pmat{1\\0\\0\\-1}=\pmat{1\\0\\0\\1}$$
+Calculate the determinant at that point
+$$\det[\mathbf{D}f_{(1,0,0,-1}] = \det\bmat{2&0&0&0\\0&0&0&0\\0&0&0&0\\0&0&0&2} = 2\times0\times0\times2 = 0$$
+Therefore $f$'s derivative at this point is not invertible. Then, by the inverse function theorem, $I + \epsilon B$ doesn't have a square root in general.
+\end{problem}
+
+\begin{problem}{6}
+$$f\pmat{x\\y} = x^2 + y^2 -c$$
+$$[\mathbf{D}f_{(x,y)}] = \bmat{2x&2y}$$
+By implicit function theorem, unless $x = y = 0$, there must be a passive variable the partial derivative to which is invertible. However, $F\pmat{0\\0} = 0$ only when $c$ = 0. Therefore, as long as $c \neq 0$, the curve would be a smooth manifold.
+\end{problem}
+
+\begin{problem}{7}
+\begin{enumerate}
+\item
+Let $f_a\pmat{x\\y} = x-y^2 - a$. $[\mathbf{D}f_{a{(x,y)}}] = \bmat{1&-2y}$. Since $1$ is always invertible, $X_a$ is a smooth manifold no matter what $a$ is.
+
+Let $f_b\pmat{x\\y\\z} = x^2+y^2+z^2-b$. $[\mathbf{D}f_{b{(x,y,z)}}] = \bmat{2x&2y&2z}$. As long as $b \neq 0$, one of the three partial derivatives must be nonzero and therefore invertible. Therefore, $Y_b$ is a smooth manifold unless $b = 0$\footnote{I assume an empty set is a manifold. If not, $b \ge 0$ is the requirement for $Y_b$ be a smooth manifold}.
+\item
+$$f\pmat{x\\y\\z} = \pmat{x-y^2-a\\x^2+y^2+z^2-b}$$
+$$[\mathbf{D}f_{(x,y,z)}] = \bmat{1&-2y&0\\2x&2y&2z}$$
+Row reduce the matrix by one step:
+$$\bmat{1&-2y&0\\0&2y+4xy&2z}$$
+The partial derivative would not be surjective only if $z = 0$ and $y(2x+1) = 0$. Since there always exists $\pmat{x\\y\\0} \in X_a \cap Y_b$, $y(2x+1)$ has to be nonzero if the intersection is a smooth manifold. If $y = 0$, $x-y^2=x=a$, $x^2+y^2=x^2=b$, therefore $a^2=b$; if $2x=-1$, namely $x=-1/2$, $-1/2-a=y^2=b-1/4$, consequently $a+b=-1/4$. To sum up, if $a^2 \neq b$ and $a + b \neq -1/4$, the intersection is guarenteed by the theorem to be a smooth manifold.
+\end{enumerate}
+\end{problem}
+
+\end{document}

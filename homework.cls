@@ -2,6 +2,8 @@
 
 \RequirePackage{amsmath}
 \RequirePackage{amssymb}
+\RequirePackage{a4wide}
+\RequirePackage{mathtools}
 
 \author{Minsheng Liu}
 

@@ -6,13 +6,45 @@
 
 \maketitle
 
+\begin{problem}{1}
+\begin{align*}
+  f\pmat{x\\y} &= \sin(xy)\\
+  \bmat{\mathbf{J}f\pmat{x\\y}} &= \bmat{y\cos(xy) & x\cos(xy)}
+\end{align*}
+
+\begin{align*}
+  \mathbf{f}\pmat{r\\\theta} &= \pmat{r\cos\theta\\r\sin\theta} \\
+  \bmat{\mathbf{Jf}\pmat{r\\\theta}} &= \bmat{\cos\theta & -r\sin\theta\\\sin\theta & r\cos\theta}
+\end{align*}
+\end{problem}
+
+\begin{problem}{2}
+$$\bmat{\mathbf{D}f(\mathbf{p})} = \bmat{y & x \\ 2x & -2y}$$
+\begin{align*}
+f(\mathbf{p}+t\vec{\mathbf{v}})-f(\mathbf{p})-t\bmat{\mathbf{D}f(\mathbf{p})}\vec{\mathbf{v}} &=
+f(\mathbf{p}+t\vec{\mathbf{v}})-\pmat{1\\0}-t\bmat{\mathbf{D}f\pmat{1\\1}}\vec{\mathbf{v}} \\ &=
+f\pmat{1+2t\\1+t}-\pmat{1\\0}-t\bmat{1&1\\2&-2}\pmat{2\\1} \\ &=
+\pmat{(1+2t)(1+t)\\(1+2t)^2 - (1+t)^2} - \pmat{1\\0} - t\pmat{3\\2} \\ &=
+\pmat{1+3t+2t^2-1-3t\\2t+3t^3-2t} \\ &=
+t^2\pmat{2\\3}
+\end{align*}
+
+For $t = 1, \frac{1}{10}, \frac{1}{100}, \frac{1}{1000}$, the answer is $\pmat{2\\3}, 10^{-2}\pmat{2\\3}, 10^{-4}\pmat{2\\3}, 10^{-6}\pmat{2\\3}$ respectively. The difference scale like $t^2$, namely $k = 2$.
+\end{problem}
+
+\begin{problem}{3}
+I did the fourth problem first. See it for more justifications.
+
+$$\bmat{\mathbf{D}\det(I)}H = \bmat{1&0&0&1}\pmat{h_{1,1}\\h_{1,2}\\h_{2,1}\\h_{2,2}}=h_{1,1}+h_{2,2}$$
+\end{problem}
+
 \begin{problem}{4}
 \def \tr{\mathrm{tr}}
 
 Fix $A = \bmat{a&b\\c&d}$ and $H = \bmat{e&f\\g&i}$. Identify $A, H$ as vectors in $\mathbb{R}^4$ and $\det : \mathbb{R}^4 \to \mathbb{R}$. Then
-$$\mathbf{J}_{\det}(A) = \bmat{d&-c&-b&a}$$
+$$\bmat{\mathbf{D}_{\det}(A)} = \bmat{d&-c&-b&a}$$
 $$\mathrm{LHS} = de-cf-bg+ai$$
-The right hand side
+The right hand side is
 \begin{align*}
   \det(A)\tr(A^{-1}H) &= (ad-bc)\tr(\frac{1}{ad-bc}\bmat{d&-c\\-b&a}\bmat{e&f\\g&i}) \\
                       &= \tr(\bmat{d&-b\\-c&a}\bmat{e&f\\g&i}) \\
@@ -23,4 +55,49 @@ The right hand side
 This completes the proof. \QED
 \end{problem}
 
+\begin{problem}{5}
+\begin{align*}
+\bmat{\mathbf{D}f(\mathbf{a})}\mathbf{v} &=
+\bmat{\mathbf{D}f(\mathbf{a})}^{\top} \cdot \mathbf{v} \\ &=
+\vec{\nabla}f(\mathbf{a}) \cdot \mathbf{v} \\ &=
+|\vec{\nabla}f(\mathbf{a})||\mathbf{v}|\cos\theta \\ &=
+|\vec{\nabla}f(\mathbf{a})|\cos\theta
+\end{align*}
+
+Let $\mathbf{v}$ be the direction in which $f$ increases the fastest. Clearly $\bmat{\mathbf{D}f(\mathbf{a})}\mathbf{v}$ is now maximal, and so is the right hand side; since $|\vec{\nabla}f(\mathbf{a})|$ is a fixed positive number, this means $\cos\theta$ is maximal, or $\theta = 0$. In other words, $\vec{\nabla}f(\mathbf{a})$ now points to the same direction as $\mathbf{v}$. For this $\mathbf{v}$, the left hand side is also the fastest rate of increase: it represents how much $f$ will increase by increase a vector of length $1$. Since the left hand side is equal to $|\vec{\nabla}f(\mathbf{a})|$ now, the latter is also this fastest rate of increase. \QED
+\end{problem}
+
+\begin{problem}{6}
+I assume by $\overrightarrow{D_1f}$ the author means $\overrightarrow{D_1f}\pmat{x\\y}$. Namely, I am required to prove:
+$$\forall x, y \in \mathbb{R}. \quad x\overrightarrow{D2f}\pmat{x\\y} = y\overrightarrow{D1f}\pmat{x\\y}$$
+
+Otherwise, if the author identifies $\overrightarrow{D_1f}$ as a function whose point is not fixed and $y$ as a linear function, what I am required to prove becomes
+$$\forall x, y, x', y' \in \mathbb{R}. \quad x\overrightarrow{D2f}\pmat{x'\\y'} = y\overrightarrow{D1f}\pmat{x'\\y'}$$
+, which yields a clearly wrong equation:
+$$\forall x, y, x', y' \in \mathbb{R}. \quad x\varphi'(x'^2+y'^2)2y' = y\varphi'(x'^2+y'^2)2x'$$
+
+\begin{enumerate}
+\item Represent the derivative in terms of $\varphi'$:
+$$\overrightarrow{D_1f}\pmat{x\\y} = \frac{d\varphi(x^2+y^2)}{dx} = \frac{d\varphi(x^2+y^2)}{d(x^2+y^2)}\frac{d(x^2+y^2)}{dx} = \varphi'(x^2+y^2)2x$$
+$$\overrightarrow{D_2f}\pmat{x\\y} = \varphi'(x^2+y^2)2y$$
+Then we have:
+$$x\overrightarrow{D_2f} - y\overrightarrow{D_1f} = x\varphi'(x^2+y^2)2y - y\varphi'(x^2+y^2)2x = 2xy\varphi'(x^2+y^2) - 2xy\varphi'(x^2+y^2) = 0$$
+\item This is the part with extra credit.
+
+Let $x = r\cos\theta$ and $y = r\sin\theta$.
+
+$$D_1f = \frac{\partial f}{\partial x} = \frac{\partial f}{\partial \theta}\frac{\partial \theta}{\partial x} =
+\frac{\partial f}{\partial \theta}\frac{\partial \arctan{y/x}}{\partial x}
+= \frac{\partial f}{\partial \theta}\frac{-\sin\theta}{r}$$
+$$D_2f = \frac{\partial f}{\partial y} = \frac{\partial f}{\partial \theta}\frac{\partial \theta}{\partial y} =
+\frac{\partial f}{\partial \theta}\frac{\partial \arctan{y/x}}{\partial y}
+= \frac{\partial f}{\partial \theta}\frac{\cos\theta}{r}$$
+
+Substitute the above into the invariant:
+$$r\cos\theta\frac{\partial f}{\partial \theta}\frac{\cos\theta}{r} + r\sin\theta\frac{\partial f}{\partial \theta}\frac{\sin\theta}{r} = 0$$
+$$\frac{\partial f}{\partial \theta} = 0$$
+
+In other words, $f$ depends solely on $r$. Because $x^2 + y^2 = r^2$, there is a one-to-one mapping between $r$ and $x^2 + y^2$, and $\varphi(r) = g\pmat{\sqrt{r}\\0}$, where $g \pmat{r\\\theta} = f\pmat{r\cos\theta\\r\sin\theta}$.
+\end{enumerate}
+\end{problem}
 \end{document}
