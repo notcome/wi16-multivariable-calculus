@@ -45,7 +45,7 @@ $$\mathbf{D}_2f\pmat{x\\y} =
 0             & \text{if } \pmat{x\\y} = \pmat{0\\0}
 \end{dcases}$$
 If $f$ is differentiable at the origin, then
-$$\lim_{h \to 0} \frac{1}{h}(f(h\vec{v}) - f(0)) = [\mathbf{D}f]\pmat{0\\0}$$
+$$\lim_{h \to 0} \frac{1}{h}(f(h\vec{v}) - f(0)) = [\mathbf{D}f\pmat{0\\0}]$$
 Let $v = \pmat{1\\1}$, then we have
 $$\mathrm{LHS} = \frac{1}{h}\frac{3h^3-h^3}{2h^2} = 1 \neq 0 = \mathrm{RHS}$$
 Therefore $f$ is not differentiable at the origin.
@@ -67,32 +67,32 @@ Since $\det[\mathbf{D}f\pmat{0\\0}] = 1 \ne 0$, $f$ is locally invertible at $(0
 \begin{problem}{5}
 Let $f$ be the matrix square function. Identity the matrix as a vector of $\mathbb{R}^4$, we have
 $$f\pmat{x\\y\\z\\w} = \pmat{x^2+yz\\xy+yw\\zx+wz\\zy+w^2}$$
-$$[\mathbf{D}f_{(x,y,z,w)}] = \bmat{2x &   z &  y  &  0\\
+$$[\mathbf{D}f\pmat{x\\y\\z\\w}] = \bmat{2x &   z &  y  &  0\\
                             y & x+w &  0  &  y\\
                             z &   0 & x+w &  z\\
                             0 &   z &  y  & 2w}$$
 Note that
 $$f\pmat{1\\0\\0\\-1}=\pmat{1\\0\\0\\1}$$
 Calculate the determinant at that point
-$$\det[\mathbf{D}f_{(1,0,0,-1}] = \det\bmat{2&0&0&0\\0&0&0&0\\0&0&0&0\\0&0&0&2} = 2\times0\times0\times2 = 0$$
+$$\det[\mathbf{D}f\pmat{1\\0\\0\\-1}] = \det\bmat{2&0&0&0\\0&0&0&0\\0&0&0&0\\0&0&0&2} = 2\times0\times0\times2 = 0$$
 Therefore $f$'s derivative at this point is not invertible. Then, by the inverse function theorem, $I + \epsilon B$ doesn't have a square root in general.
 \end{problem}
 
 \begin{problem}{6}
 $$f\pmat{x\\y} = x^2 + y^2 -c$$
-$$[\mathbf{D}f_{(x,y)}] = \bmat{2x&2y}$$
-By implicit function theorem, unless $x = y = 0$, there must be a passive variable the partial derivative to which is invertible. However, $F\pmat{0\\0} = 0$ only when $c$ = 0. Therefore, as long as $c \neq 0$, the curve would be a smooth manifold.
+$$[\mathbf{D}f\pmat{x\\y}] = \bmat{2x&2y}$$
+By implicit function theorem, unless $x = y = 0$, there must be a passive variable the partial derivative to which is invertible. However, $F\pmat{0\\0} = 0$ only when $c$ = 0. Therefore, as long as $c > 0$, the curve would be a smooth manifold.
 \end{problem}
 
 \begin{problem}{7}
 \begin{enumerate}
 \item
-Let $f_a\pmat{x\\y} = x-y^2 - a$. $[\mathbf{D}f_{a{(x,y)}}] = \bmat{1&-2y}$. Since $1$ is always invertible, $X_a$ is a smooth manifold no matter what $a$ is.
+Let $f_a\pmat{x\\y} = x-y^2 - a$. $[\mathbf{D}f_a\pmat{x\\y}] = \bmat{1&-2y}$. Since $1$ is always invertible, $X_a$ is a smooth manifold no matter what $a$ is.
 
-Let $f_b\pmat{x\\y\\z} = x^2+y^2+z^2-b$. $[\mathbf{D}f_{b{(x,y,z)}}] = \bmat{2x&2y&2z}$. As long as $b \neq 0$, one of the three partial derivatives must be nonzero and therefore invertible. Therefore, $Y_b$ is a smooth manifold unless $b = 0$\footnote{I assume an empty set is a manifold. If not, $b \ge 0$ is the requirement for $Y_b$ be a smooth manifold}.
+Let $f_b\pmat{x\\y\\z} = x^2+y^2+z^2-b$. $[\mathbf{D}f_b\pmat{x\\y\\z}] = \bmat{2x&2y&2z}$. As long as $b \neq 0$, one of the three partial derivatives must be nonzero and therefore invertible. Therefore, $Y_b$ is a smooth manifold unless $b = 0$\footnote{I assume an empty set is a manifold. If not, $b \ge 0$ is the requirement for $Y_b$ be a smooth manifold}.
 \item
 $$f\pmat{x\\y\\z} = \pmat{x-y^2-a\\x^2+y^2+z^2-b}$$
-$$[\mathbf{D}f_{(x,y,z)}] = \bmat{1&-2y&0\\2x&2y&2z}$$
+$$[\mathbf{D}f\pmat{x\\y\\z}] = \bmat{1&-2y&0\\2x&2y&2z}$$
 Row reduce the matrix by one step:
 $$\bmat{1&-2y&0\\0&2y+4xy&2z}$$
 The partial derivative would not be surjective only if $z = 0$ and $y(2x+1) = 0$. Since there always exists $\pmat{x\\y\\0} \in X_a \cap Y_b$, $y(2x+1)$ has to be nonzero if the intersection is a smooth manifold. If $y = 0$, $x-y^2=x=a$, $x^2+y^2=x^2=b$, therefore $a^2=b$; if $2x=-1$, namely $x=-1/2$, $-1/2-a=y^2=b-1/4$, consequently $a+b=-1/4$. To sum up, if $a^2 \neq b$ and $a + b \neq -1/4$, the intersection is guarenteed by the theorem to be a smooth manifold.
