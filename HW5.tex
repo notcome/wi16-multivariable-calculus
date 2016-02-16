@@ -1,0 +1,97 @@
+\documentclass{homework}
+
+\title{Homework 5}
+
+\begin{document}
+
+\maketitle
+
+\begin{problem}{1}
+\begin{enumerate}
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
+\item $S^2 - M = {(x, 0, z) | x^2 + z^2 = 1, x \geq 0}$
+
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
+\item
+$$[\mathbf{D}_1\gamma] = \bmat{-\sin u \cos v\\
+                                \cos u \cos v\\
+                                0}$$
+$$[\mathbf{D}_2\gamma] = \bmat{-\cos u \sin v\\
+                               -\sin u \sin v\\
+                                \cos v}$$
+$$[\mathbf{D}_1\gamma] \times [\mathbf{D}_2\gamma] =
+\cos v \bmat{ \cos u \cos v\\
+             -\sin u \cos v\\
+              \sin v}$$
+
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
+\item
+$$\cos v\bmat{1\\-1\\1} \gamma\bmat{u\\v}
+= [\mathbf{D}_1\gamma] \times [\mathbf{D}_2\gamma]$$
+\end{enumerate}
+\end{problem}
+
+\begin{problem}{2}
+\begin{enumerate}
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
+\item $[\mathbf{DF}(x_1, x_2, x_3)] = \bmat{2x_1/r^2 & 2x_2/s^2 & 2x_3}$. Since
+$x_1^2/r^2 + x_2^2/s^2 + x_3^2 = 1$ for all $(x_1, x_2, x_3) \in M$, at least
+one entry is nonzero. Therefore, $[\mathbf{DF}(\mathbf{z})]$ is onto for all
+$\mathbf{z} \in M$, and consequently $M$ is a $2$-dimensional manifold. \QED
+
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
+\item $$\frac{2c_1}{r^2}\dot{x_1} +
+        \frac{2c_2}{s^2}\dot{x_2} +
+                    2c_3\dot{x_3} = 0$$
+
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
+\item $$\vec{N_1} = \bmat{\frac{2c_1}{r^2}\\[4pt]
+                          \frac{2c_2}{s^2}\\[4pt]
+                          2c_3}$$
+\end{enumerate}
+\end{problem}
+
+\begin{problem}{3}
+\begin{enumerate}
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
+\item
+$$[\mathbf{D}_1\gamma] = \bmat{1\\0\\
+-\frac{u}{r^2}\cdot\frac{1}{f(u, v)}}$$
+$$[\mathbf{D}_2\gamma] = \bmat{0\\1\\
+-\frac{v}{s^2}\cdot\frac{1}{f(u, v)}}$$
+$$[\mathbf{D}_1\gamma] \times [\mathbf{D}_2\gamma] =
+\bmat{
+ \frac{u}{r^2}\cdot\frac{1}{f(u, v)}\\
+-\frac{v}{s^2}\cdot\frac{1}{f(u, v)}\\
+ 1}$$
+
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
+\item
+$$\operatorname{span}(
+\bmat{1\\0\\-\frac{c_1}{r^2}\cdot\frac{1}{f(c_1, c_2)}},
+\bmat{1\\0\\-\frac{c_2}{s^2}\cdot\frac{1}{f(c_1, c_2)}})$$
+
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
+\item
+Row reduce the following matrix:
+$$\bmat{
+1 & 0 & \bmat{1\\0\\-\frac{c_1}{r^2}\cdot\frac{1}{f(c_1, c_2)}} & 0\\
+0 & 1 & \bmat{1\\0\\-\frac{c_2}{s^2}\cdot\frac{1}{f(c_1, c_2)}}}$$
+It is already in the echelon form. Pick a free variable $u$ for the third
+column. Clearly, a solution will be of the form
+$$\bmat{
+\frac{c_1}{r^2}\cdot\frac{1}{f(c_1, c_2)}u\\
+\frac{c_2}{s^2}\cdot\frac{1}{f(c_1, c_2)}u\\
+u}$$
+Let $u = 1$,
+$$\vec{N_2} = \bmat{
+\frac{c_1}{r^2}\cdot\frac{1}{f(c_1, c_2)}\\
+\frac{c_2}{s^2}\cdot\frac{1}{f(c_1, c_2)}\\
+1}$$
+Observe that in $\vec{N_1}$, $c_3 = f(c_1, c_2)$:
+$$\vec{N_1} = \bmat{\frac{2c_1}{r^2}\\\frac{2c_2}{s^2}\\2f(c_1, c_2)}$$
+Clearly, $\vec{N_1} = 2f(c_1, c_2)\vec{N_2}$. \QED
+\end{enumerate}
+\end{problem}
+
+\end{document}
