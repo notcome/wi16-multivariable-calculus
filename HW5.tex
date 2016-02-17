@@ -45,9 +45,9 @@ $\mathbf{z} \in M$, and consequently $M$ is a $2$-dimensional manifold. \QED
                     2c_3\dot{x_3} = 0$$
 
 %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
-\item $$\vec{N_1} = \bmat{\frac{c_1}{r^2}\\[4pt]
-                          \frac{c_2}{s^2}\\[4pt]
-                          c_3}$$
+\item $$\vec{N_1} = \bmat{\frac{2c_1}{r^2}\\[4pt]
+                          \frac{2c_2}{s^2}\\[4pt]
+                          2c_3}$$
 \end{enumerate}
 \end{problem}
 
@@ -78,8 +78,71 @@ $$\vec{N_2} = \bmat{
 \frac{c_2}{s^2}\cdot\frac{1}{f(c_1, c_2)}\\
 1}$$
 Observe that in $\vec{N_1}$, $c_3 = f(c_1, c_2)$:
-$$\vec{N_1} = \bmat{\frac{c_1}{r^2}\\\frac{c_2}{s^2}\\f(c_1, c_2)}$$
-Clearly, $\vec{N_1} = f(c_1, c_2)\vec{N_2}$. \QED
+$$\vec{N_1} = 2\bmat{\frac{c_1}{r^2}\\\frac{c_2}{s^2}\\f(c_1, c_2)}$$
+Clearly, $\vec{N_1} = 2f(c_1, c_2)\vec{N_2}$. \QED
+\end{enumerate}
+\end{problem}
+
+\begin{problem}{4}
+\begin{enumerate}
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
+\item
+$$[\mathbf{D}\gamma(\mathbf{x})] = \bmat{
+1      & \hdots & 0      \\
+\vdots & \ddots & \vdots \\
+0      & \hdots & 1      \\
+\mathbf{D}_1f_\mathbf{x} & \hdots & \mathbf{D}_{n-1}f_\mathbf{x}\\
+}$$
+Clearly,
+$$\operatorname{span}(\mathbf{D}_1\gamma_{\mathbf{x}}, \dots,
+\mathbf{D}_{n-1}\gamma_{\mathbf{x}}) = \operatorname{img}
+[\mathbf{D}\gamma(\mathbf{x})] = T_{\gamma(\mathbf{x})}M$$
+. Moreover, since
+$\mathbf{D}_1\gamma_{\mathbf{x}}, \dots, \mathbf{D}_{n-1}\gamma_{\mathbf{x}}$
+are linearly independent---note the first $n-1$ rows of 
+$[\mathbf{D}\gamma(\mathbf{x})]$---they form a basis for 
+$T_{\gamma(\mathbf{x})}M$. \QED
+
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
+\item
+For any vector $\mathbf{v} \in T_{\gamma(\mathbf{x})}M$, there exists $a_1,
+\dots, a_{n-1}$ such that
+$$\sum_{i=1}^{n-1}a_i\mathbf{D}_i\gamma(\mathbf{x}) = \mathbf{v}$$
+Then, we have
+$$\bmat{
+-D_1f(\mathbf{x})\\
+\vdots\\
+-D_{n-1}f(\mathbf{x})\\
+1} \cdot \bmat{
+a_1\\
+\vdots\\
+a_{n-1}\\
+\sum_{i=1}^{n-1}a_i\mathbf{D}_i\gamma(\mathbf{x})
+} = -\sum_{i=1}^{n-1}a_i\mathbf{D}_i\gamma(\mathbf{x})
+  +  \sum_{i=1}^{n-1}a_i\mathbf{D}_i\gamma(\mathbf{x})
+  = 0$$
+Therefore, this vector is perpendicular to $T_{\gamma(\mathbf{x})}M$. \QED
+
+\end{enumerate}
+\end{problem}
+
+\begin{problem}{5}
+\begin{enumerate}
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
+\item
+$$4+3x_2+4x_1x_3^2+2x_1x_2x_3^2+x_1^2x_2^2+2x_1^3x_3^2+3x_1^5$$
+
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
+\item
+$$\sum^3_{m=0}\sum_{I \in \mathcal{I}^m_3} a_I\mathbf{x}^I$$
+where $a(0,1,0)=2,a(1,1,0)=1,a(1,1,1)=-1,a(2,0,0)=1,a(0,2,1)=5$, and all other
+$a_I = 0$, for $I \in \mathcal{I}^m_3$ for $m \leq 3$.
+
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
+\item
+$$\sum^6_{m=0}\sum_{I \in \mathcal{I}^m_4} a_I\mathbf{x}^I$$
+where $a(1,1,0,0)=3,a(0,1,1,1)=-1,a(0,2,1,0)=2,a(0,2,0,4)=1,a(0,5,0,0)=1$, and 
+all other $a_I = 0$, for $I \in \mathcal{I}^m_3$ for $m \leq 6$.
 \end{enumerate}
 \end{problem}
 
