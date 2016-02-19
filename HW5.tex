@@ -146,4 +146,68 @@ all other $a_I = 0$, for $I \in \mathcal{I}^m_3$ for $m \leq 6$.
 \end{enumerate}
 \end{problem}
 
+\begin{problem}{6}
+\begin{enumerate}
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
+\item $x^2+4xy+4y^2 = (x+2y)^2$. Degenerate. Neither positive definitive nor
+negative definitive, since for every $x \neq 0$, let $y = -1/2x$ and the
+quadratic form would be 0.
+
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
+\item $x^2+2xy+2y^2+2yz+z^2=(x+y)^2+(y+z)^2$. Degenerate. Neither positive
+definitive nor negative definitive, since it is on $R^3$ but its signature
+is $(2, 0)$.
+
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
+\item
+\begin{align*}
+  & 2x^2+2y^2+z^2+w^2+4xy+2xz-2xw-2yw \\
+= & x^2+z^2+2xz + x^2+2y^2+w^2+4xy-2w(x+y) \\
+= & (x+z)^2 + w^2-2w(x+y)+(x+y)^2 - (x+y)^2 + x^2+2y^2+4xy \\
+= & (x+z)^2+(w-x-y)^2 - x^2-y^2-2xy + x^2+2y^2+4xy \\
+= & (x+z)^2+(w-x-y)^2 + y^2+2xy+x^2 - x^2 \\
+= & (x+z)^2+(w-x-y)^2 + (y+x)^2 -x^2
+\end{align*}
+Clearly the four linear functions are linearly independent:
+$$\bmat{1&-1&1&-1\\0&-1&1&0\\1&0&0&0\\0&1&0&0} \widetilde{}
+\bmat{1&0&0&0\\0&1&0&0\\0&-1&1&0\\1&-1&1&-1} \widetilde{}
+\bmat{1&0&0&0\\0&1&0&0\\0&0&1&0\\0&0&0&1}$$
+It is nondegenerate, since it has a rank 4. It is neither positive definitive
+nor negative definitive, since it is on $R^4$ but its signature is $(3,1)$.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}{7}
+\begin{enumerate}
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
+\item It's obvious that $S^{n-1} \subset B_2(\vec{0}) = \{\vec{x} \in 
+\mathbb{R}^n : |\vec{x}| < 2\}$. Therefore, $S^{n-1}$ is bounded.
+Let $\vec{p} \in \mathbb{R}^n \setminus S^{n-1}$. Let $\epsilon =
+||\vec{p}| - 1|$. For any point $\vec{q} \in B_{\epsilon}(\vec{q})$,
+$\vec{q} \notin S^{n-1}$, since
+\begin{itemize}
+    \item If $|\vec{p}| < 1$, $|\vec{q}| \leq |\vec{p}| + |\vec{p} - \vec{q}|
+    \le 1$.
+    \item If $|\vec{p}| > 1$, $|\vec{q}| \geq |\vec{p}| - |\vec{p} - \vec{q}|
+    \ge 1$.
+\end{itemize}
+Therefore, $S^{n-1}$'s complement set is open and itself is closed.
+
+This proves that $S^{n-1}$ is a compact set. By the existence of minima theorem,
+there exists $\vec{x_0} \in S^{n-1}$ such that $Q(\vec{x_0}) \leq Q(\vec{x})$
+for all $\vec{x} \in S^{n-1}$.
+
+\item Since $\vec{x_0} \neq 0$ and $Q$ is a positive definitive quadratic form,
+$Q(\vec{x_0}) > 0$.
+
+\item \textbf{Claim.} The constant $C = Q(\vec{x_0})$.
+
+Let $\vec{x} \in \mathbb{R}^n$. Since $|\frac{\vec{x}}{|\vec{x}|}| = 1$,
+$\frac{\vec{x}}{|\vec{x}|} \in S^{n-1}$. Therefore,
+$Q(\frac{\vec{x}}{|\vec{x}|}) \geq Q(\vec{x_0}) = C$. Consequently,
+$Q(\vec{x}) = |\vec{x}|^2Q(\frac{\vec{x}}{|\vec{x}|}) \geq |\vec{x}|^2Q(C)$.
+\QED
+\end{enumerate}
+\end{problem}
+
 \end{document}
