@@ -1,0 +1,127 @@
+\documentclass{homework}
+
+\usepackage{mathpazo}
+
+\title{Homework 7}
+
+\begin{document}
+
+\maketitle
+
+\begin{problem}{1}
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
+Note that $\mathcal{D}_N$ can be divided into four cases:
+\begin{itemize}
+\item $0 \leq x, y < 1$.
+      $A_N = \{(i, j) \in \mathcal{D}_N | 0 \leq i/2^N, j/2^N < 1\}$.
+\item The top line of the square.
+      $T_N = \{(i, 2^N) \in \mathcal{D}_N\}$.
+
+\item The right line of the square.
+      $R_N = \{(2^N, j) \in \mathcal{D}_N\}$.
+
+\item All the rest, on which $f$ is always $0$.
+\end{itemize}
+Then, the upper sum and lower sum can be written as:
+\begin{align*}
+U_N(f) &= \sum_{C \in A_N} M_C(f) \mathrm{vol}_n C \\
+       &+ \sum_{C \in T_N} M_C(f) \mathrm{vol}_n C \\
+       &+ \sum_{C \in R_N} M_C(f) \mathrm{vol}_n C \\
+       &= \sum_{(i, j) \in A_N}
+          \sin(\frac{i - j}{2^N} + \frac{1}{2^N}) \frac{1}{2^{2N}}
+        + 0 \\
+       &+ \sum_{(i, j) \in R_N}
+          \sin(1 - \frac{j}{2^N}) \frac{1}{2^{2N}}
+\end{align*}
+\begin{align*}
+L_N(f) &= \sum_{C \in A_N} m_C(f) \mathrm{vol}_n C \\
+       &= \sum_{(i, j) \in A_N}
+          \sin(\frac{i - j}{2^N} - \frac{1}{2^N}) \frac{1}{2^{2N}} \\
+\end{align*}
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
+\begin{align*}
+U_N(f) - L_N(f)
+&= \sum_{(i, j)\in A_N}\sin(\frac{i-j}{2^N}+\frac{1}{2^N})\frac{1}{2^{2N}}
+ - \sum_{(i, j)\in A_N}\sin(\frac{i-j}{2^N}-\frac{1}{2^N})\frac{1}{2^{2N}} \\
+&+ \sum_{(i, j) \in R_N} \sin(1 - \frac{j}{2^N}) \frac{1}{2^{2N}} \\
+&= \frac{1}{2^{2N}} \sum_{(i, j)\in A_N}
+   2\cos(\frac{i-j}{2^N})\sin(\frac{1}{2^N})
+ + \sum_{(i, j) \in R_N} \sin(1 - \frac{j}{2^N}) \frac{1}{2^{2N}} \\
+&\leq \frac{1}{2^{2N}} \sum_{(i, j)\in A_N}
+      2\cos(\frac{i-j}{2^N})\sin(\frac{1}{2^N})
+    + \frac{1}{2^N} \cdot 1 \cdot \frac{1}{2^{2N}}
+\end{align*}
+Also, note that
+$$\frac{1}{2^{2N}} \sum_{(i, j)\in A_N}
+  2\cos(\frac{i-j}{2^N})\sin(\frac{1}{2^N})
+  \leq U_N(f) - L_N(f)
+$$
+. Since $\sin(\frac{1}{2^N})$ goes to $0$ as $N$ goes to infinity, we have
+$$\lim_{N \to \infty}
+  \frac{1}{2^{2N}} \sum_{(i, j)\in A_N}
+  2\cos(\frac{i-j}{2^N})\sin(\frac{1}{2^N})
+  = 0
+$$
+. Moreover,
+$$\lim_{N \to \infty} \frac{1}{2^N} = 0$$
+. Therefore, by squeeze theorem,
+$$\lim_{N \to \infty} U_N(f) - L_N(f) = 0$$
+\QED
+\end{problem}
+
+\begin{problem}{2}
+%%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%% %%%%|
+\textbf{Claim}.
+Let $\epsilon > 0$, there exists $N_0$ such that for all $N > N_0$,
+$U_N(f) - L_N(f) < \epsilon$.
+
+Since $f$ is uniformly continuous, there exists $\delta$ such that
+if $|\bpnt{x} - \bpnt{y}| \leq \delta$, then
+$|f(\bpnt{x}) - f(\bpnt{y})| < \epsilon / \mathrm{vol}(\mathrm{Supp}(f))$.
+Claim that $N_0$ is the smallest integer such that $1 / 2^{N_0 + 1} < \delta$.
+Fix $\delta$.
+
+Let $N > N_0$. Let $C \in \mathcal{D}_N$. Let $\bpnt{x}$ be the point of $C$
+such that $f(\bpnt{x}) = M_C(f)$. For each $\bpnt{y} \in C$,
+$$|\bpnt{x} - \bpnt{y}| \leq \frac{\sqrt{2}}{2^{N+1}}
+< \frac{1}{2^{N_0+1}} < \delta$$
+$$   M_C(f) - m_C(f)
+\leq |f(\bpnt{x} - \bpnt{y}|
+<\frac{\epsilon}{\mathrm{vol}(\mathrm{Supp}(f))}$$
+Then,
+\begin{align*}
+U_N(f) - L_N(f)
+&= \sum_{C \in \mathcal{D}_N} [M_C(f) - m_C(f)]\mathrm{vol}_n C\\
+&< \sum_{C \in \mathcal{D}_N} \frac{\epsilon}{\mathrm{vol}(\mathrm{Supp}(f))}
+    \mathrm{vol}_n C\\
+&= \mathrm{vol}(\mathrm{Supp}(f))
+    \frac{\epsilon}{\mathrm{vol}(\mathrm{Supp}(f))}\\
+&= \epsilon
+\end{align*}
+. Clearly, $f$ is integrable. \QED
+\end{problem}
+
+\begin{problem}{3}
+Let $R = \{(x, y) \in \mathbb{R}^2 | 0 \leq y \leq x \leq \pi\}$,
+\begin{align*}
+\int_0^\pi(\int_y^\pi \frac{\sin x}{x} \mathrm{d}x)\mathrm{d}y
+&= \int_R \frac{\sin x}{x} |\mathrm{d} x \mathrm{d} y| \\
+&= \int_0^{\pi} (\int_0^x \frac{\sin x}{x} \mathrm{d}y) \mathrm{d}x \\
+&= \int_0^{\pi} \sin x \mathrm{d}x \\
+&= - \cos \pi + \cos 0  = 2
+\end{align*}
+\end{problem}
+
+\begin{problem}{4}
+Let $R = \{(x, y) \in \mathbb{R}^2 | 0 \leq x \leq a, x^2 \leq y \leq a^2\}$,
+\begin{align*}
+\int_0^a (\int_{x^2}^{a^2} \sqrt{y}e^{-y^2} \mathrm{d}y) \mathrm{d}x
+&= \int_R \sqrt{y}e^{-y^2} |\mathrm{d}x \mathrm{d}y| \\
+&= \int_0^{a^2} (\int_{0}^{\sqrt{y}} \sqrt{y}e^{-y^2} \mathrm{d}x) \mathrm{d}y \\
+&= \int_0^{a^2} ye^{-y^2} \mathrm{d}y \\
+&= -\frac{1}{2}e^{-y^2} |_0^{a^2} \\
+&= -\frac{1}{2}e^{-a^2} + \frac{1}{2}
+\end{align*}
+\end{problem}
+
+\end{document}
